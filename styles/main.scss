@@ -17,7 +17,9 @@ main {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: $blue;
+    flex-direction: column;
 }
 
 .header {
@@ -117,4 +119,9 @@ main {
             background-color: $white;
         }
     }
+}
+
+.news {
+    height: 90vh;
+    width: 95%;
 }
