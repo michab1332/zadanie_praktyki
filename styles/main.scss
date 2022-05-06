@@ -26,9 +26,73 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 999;
+
+    &__searchbar {
+        height: 50%;
+        width: clamp(4rem, 20rem, 30rem);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 5rem;
+        padding: 0 1rem;
+        background-color: $blue;
+        position: relative;
+
+        &__input {
+            border: none;
+            outline: none;
+            background-color: transparent;
+
+            &::placeholder {
+                color: $white;
+            }
+        }
+
+        &__icon {
+            cursor: pointer;
+        }
+
+        &::before {
+            content: "";
+            width: 101%;
+            height: 110%;
+            background: linear-gradient(125deg, $lighterBlue 0%, $blockColor 49%, $lighterBlue 100%);
+            position: absolute;
+            transform: translateY(-50%) translateX(-50%);
+            top: 50%;
+            left: 50%;
+            z-index: -1;
+            border-radius: 5rem;
+        }
+    }
+
+    &__program {
+        font-size: small;
+        display: flex;
+        height: 100%;
+        align-items: center;
+        gap: .7rem;
+
+        &__programIcon {
+            margin-top: -5px;
+        }
+    }
+
+    &__socials {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+
+        &__icon {
+            cursor: pointer;
+        }
+    }
 
     &__burgerButton {
-        width: 30px;
+        width: 35px;
         height: 3px;
         background-color: $white;
         position: relative;
