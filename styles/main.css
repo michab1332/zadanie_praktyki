@@ -293,4 +293,9 @@ main {
   -o-object-fit: cover;
      object-fit: cover;
 }
+
+.information {
+  width: 95%;
+  height: 80vh;
+}
 /*# sourceMappingURL=main.css.map */
