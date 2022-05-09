@@ -323,6 +323,7 @@ main {
         height: 100%;
         display: flex;
         gap: 2rem;
+        padding-top: 1rem;
 
         &__informations {
             display: flex;
@@ -337,4 +338,14 @@ main {
             }
         }
     }
+}
+
+.dayTalk {
+    width: 100%;
+    height: 80vh;
+    background: linear-gradient(0deg, transparent 80%, $lighterBlue 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
 }
