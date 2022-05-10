@@ -490,5 +490,27 @@ main {
       -ms-flex-align: center;
           align-items: center;
   padding-top: 2rem;
+  gap: 1rem;
+}
+
+.dayTalk__content {
+  width: 95%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.dayTalk__content__figure {
+  height: 200px;
+}
+
+.dayTalk__content__figure__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 /*# sourceMappingURL=main.css.map */
