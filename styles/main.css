@@ -27,7 +27,6 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 2rem;
 }
 
 .header {
@@ -315,6 +314,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   padding-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .information__title {
@@ -440,6 +440,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   padding-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .region__wrapper {
@@ -512,5 +513,24 @@ main {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.contact {
+  width: 100%;
+  height: 90vh;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(80%, transparent), to(#0173b4));
+  background: linear-gradient(0deg, transparent 80%, #0173b4 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 2rem;
+  gap: 1rem;
 }
 /*# sourceMappingURL=main.css.map */
