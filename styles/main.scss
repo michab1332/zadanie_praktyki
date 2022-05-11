@@ -429,3 +429,25 @@ main {
         }
     }
 }
+
+.footer {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    font-size: .7rem;
+
+    &__items {
+        display: flex;
+        list-style: none;
+
+        &__item {
+            border-right: 2px solid $white;
+            padding: 0 1rem;
+
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+}

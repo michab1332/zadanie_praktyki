@@ -628,4 +628,32 @@ main {
   gap: 1rem;
   height: 60%;
 }
+
+.footer {
+  width: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 1rem;
+  font-size: .7rem;
+}
+
+.footer__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+}
+
+.footer__items__item {
+  border-right: 2px solid #f9fbfa;
+  padding: 0 1rem;
+}
+
+.footer__items__item:last-child {
+  border: none;
+}
 /*# sourceMappingURL=main.css.map */
