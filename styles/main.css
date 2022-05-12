@@ -491,6 +491,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   padding-top: 2rem;
+  margin-bottom: 2rem;
   gap: 1rem;
 }
 
