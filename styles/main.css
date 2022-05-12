@@ -163,6 +163,22 @@ main {
   background-color: #f9fbfa;
 }
 
+@media only screen and (max-width: 600px) {
+  .header__searchbar {
+    margin: 0 1rem;
+    width: 30%;
+  }
+  .header__searchbar__input {
+    width: 100%;
+  }
+  .header__program {
+    display: none;
+  }
+  .header__socials {
+    display: none;
+  }
+}
+
 .news {
   height: 90vh;
   width: 95%;
@@ -532,6 +548,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   padding-top: 2rem;
+  margin-bottom: 2rem;
   gap: 1rem;
 }
 

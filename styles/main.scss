@@ -126,6 +126,29 @@ main {
     }
 }
 
+@media only screen and (max-width: 600px) {
+    .header {
+        &__searchbar {
+            margin: 0 1rem;
+            width: 30%;
+
+            &__input {
+                width: 100%;
+            }
+        }
+
+        &__program {
+            display: none
+        }
+
+        &__socials {
+            display: none;
+        }
+
+        &__burgerButton {}
+    }
+}
+
 .news {
     height: 90vh;
     width: 95%;
@@ -376,7 +399,7 @@ main {
 }
 
 .contact {
-    @include inputStyle(90vh);
+    @include sectionStyle(90vh);
     gap: 1rem;
 
     &__content {
