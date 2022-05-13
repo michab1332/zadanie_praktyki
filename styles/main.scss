@@ -521,3 +521,24 @@ main {
         grid-template-columns: 1fr;
     }
 }
+
+.player {
+    width: 95%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2rem;
+
+    &__video {
+        width: 100%
+    }
+
+    &__title {
+        font-size: 2rem;
+        padding: .5rem 0;
+        background-color: $blockColor;
+        text-align: center;
+        width: 100%;
+        border-bottom: 5px solid $lighterBlue
+    }
+}

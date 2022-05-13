@@ -735,4 +735,30 @@ main {
         grid-template-columns: 1fr;
   }
 }
+
+.player {
+  width: 95%;
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-bottom: 2rem;
+}
+
+.player__video {
+  width: 100%;
+}
+
+.player__title {
+  font-size: 2rem;
+  padding: .5rem 0;
+  background-color: #111e55;
+  text-align: center;
+  width: 100%;
+  border-bottom: 5px solid #0173b4;
+}
 /*# sourceMappingURL=main.css.map */
