@@ -481,7 +481,7 @@ main {
     }
 
     .dayTalk__content {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 
     .information {
@@ -516,15 +516,9 @@ main {
     }
 }
 
-@media only screen and (max-width: 600px) {
-    .dayTalk__content {
-        grid-template-columns: 1fr;
-    }
-}
-
 .player {
     width: 95%;
-    min-height: 90vh;
+    min-height: 30vh;
     display: flex;
     flex-direction: column;
     padding-bottom: 2rem;
@@ -540,5 +534,23 @@ main {
         text-align: center;
         width: 100%;
         border-bottom: 5px solid $lighterBlue
+    }
+}
+
+.similars {
+    @include sectionStyle(90vh);
+    gap: 1rem;
+
+    &__content {
+        width: 95%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .similars__content {
+        grid-template-columns: 1fr;
     }
 }
