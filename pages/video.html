@@ -11,8 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet">
+    <link href="//vjs.zencdn.net/5.4.6/video-js.min.css" rel="stylesheet">
 
-    <script src="../scripts/bundle.js"></script>
+    <script src="https://vjs.zencdn.net/7.18.1/video.min.js" defer></script>
+    <script type="module" src="../scripts/App.js" defer></script>
 </head>
 
 <body>
@@ -40,13 +42,73 @@
         </header>
 
         <section class="player">
-            <video src="" class="player__video"></video>
+            <div class="player__container">
+                <video controls class="video-js vjs-default-skin vjs-big-play-centered">
+                    <source src="../videos/test.mp4" type="video/mp4" />
+                </video>
+            </div>
             <p class="player__title">TYTUŁ FILMU</p>
         </section>
 
         <section class="similars">
             <p class="information__title"><b>ZOBACZ PODOBNE</b></p>
             <div class="similars__content">
+                <div class="articleElement--small">
+                    <figure class="articleElement__figure">
+                        <img src="" alt="" class="articleElement__figure__img">
+                    </figure>
+                    <p class="articleElement__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nulla
+                    </p>
+                </div>
+                <div class="articleElement--small">
+                    <figure class="articleElement__figure">
+                        <img src="" alt="" class="articleElement__figure__img">
+                    </figure>
+                    <p class="articleElement__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nulla
+                    </p>
+                </div>
+                <div class="articleElement--small">
+                    <figure class="articleElement__figure">
+                        <img src="" alt="" class="articleElement__figure__img">
+                    </figure>
+                    <p class="articleElement__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nulla
+                    </p>
+                </div>
+                <div class="articleElement--small">
+                    <figure class="articleElement__figure">
+                        <img src="" alt="" class="articleElement__figure__img">
+                    </figure>
+                    <p class="articleElement__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nulla
+                    </p>
+                </div>
+                <div class="articleElement--small">
+                    <figure class="articleElement__figure">
+                        <img src="" alt="" class="articleElement__figure__img">
+                    </figure>
+                    <p class="articleElement__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nulla
+                    </p>
+                </div>
+                <div class="articleElement--small">
+                    <figure class="articleElement__figure">
+                        <img src="" alt="" class="articleElement__figure__img">
+                    </figure>
+                    <p class="articleElement__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nulla
+                    </p>
+                </div>
+                <div class="articleElement--small">
+                    <figure class="articleElement__figure">
+                        <img src="" alt="" class="articleElement__figure__img">
+                    </figure>
+                    <p class="articleElement__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nulla
+                    </p>
+                </div>
                 <div class="articleElement--small">
                     <figure class="articleElement__figure">
                         <img src="" alt="" class="articleElement__figure__img">

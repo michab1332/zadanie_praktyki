@@ -742,6 +742,13 @@ main {
   padding-bottom: 2rem;
 }
 
+.player__container--fixed {
+  width: 30%;
+  position: fixed;
+  right: 2%;
+  bottom: 2%;
+}
+
 .player__video {
   width: 100%;
 }

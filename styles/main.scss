@@ -523,8 +523,17 @@ main {
     flex-direction: column;
     padding-bottom: 2rem;
 
+    &__container {
+        &--fixed {
+            width: 30%;
+            position: fixed;
+            right: 2%;
+            bottom: 2%;
+        }
+    }
+
     &__video {
-        width: 100%
+        width: 100%;
     }
 
     &__title {
