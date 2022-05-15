@@ -731,7 +731,7 @@ main {
 
 .player {
   width: 95%;
-  min-height: 30vh;
+  min-height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -743,7 +743,7 @@ main {
 }
 
 .player__container--fixed {
-  width: 30%;
+  width: 40%;
   position: fixed;
   right: 2%;
   bottom: 2%;
@@ -795,6 +795,9 @@ main {
   .similars__content {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+  }
+  .player__container--fixed {
+    width: 60%;
   }
 }
 /*# sourceMappingURL=main.css.map */
