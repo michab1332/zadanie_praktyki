@@ -1,7 +1,10 @@
 import VIDEO_DATA from "./FakeData.js";
+import VideoPage from "./VideoPage.js";
 
+const videoPage = VideoPage()
 const playerVideo = document.querySelector(".video-js")
 const playerContainer = document.querySelector(".player__container")
+
 let playerContainerHeight = null
 let windowLocationSearch = null
 let videoName = null
@@ -21,6 +24,8 @@ window.addEventListener('load', () => {
 
     videoName = urlParams.get("video_name")
     player.src({ type: 'video/mp4', src: `../videos/${videoName}` })
+
+    videoPage.generateSimilarVideos()
 
 })
 
