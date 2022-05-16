@@ -1,9 +1,10 @@
 import VIDEO_DATA from "./FakeData.js";
 import VideoPage from "./VideoPage.js";
 
-const videoPage = VideoPage()
 const playerVideo = document.querySelector(".video-js")
 const playerContainer = document.querySelector(".player__container")
+const similarsSection = document.querySelector(".similars__content")
+const videoPage = new VideoPage(VIDEO_DATA, similarsSection)
 
 let playerContainerHeight = null
 let windowLocationSearch = null

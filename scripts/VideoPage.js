@@ -1,4 +1,6 @@
-const VideoPage = () => {
+function VideoPage(data = [], containerForItems = null) {
+    this.data = data
+    this.containerForItems = containerForItems
     const self = {}
 
     const templateSimilarVideoItem = (imgUrl, desc) => {
@@ -24,21 +26,18 @@ const VideoPage = () => {
         return div;
     }
 
+    const addItemToContainer = (item) => {
+        this.containerForItems.appendChild(item)
+    }
+
     self.generateSimilarVideos = () => {
-        const item = templateSimilarVideoItem("url", "lorem")
-        console.log(item)
+        this.data.forEach(item => {
+            const article = templateSimilarVideoItem(item.imgUrl, item.desc)
+            addItemToContainer(article)
+        })
     }
 
     return self;
 }
 
 export default VideoPage;
-
-{/* <div class="articleElement--small">
-    <figure class="articleElement__figure">
-        <img src="" alt="" class="articleElement__figure__img">
-    </figure>
-    <p class="articleElement__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Nulla
-    </p>
-</div> */}
