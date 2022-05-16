@@ -1,6 +1,10 @@
+import VIDEO_DATA from "./FakeData.js";
+
 const playerVideo = document.querySelector(".video-js")
 const playerContainer = document.querySelector(".player__container")
 let playerContainerHeight = null
+let windowLocationSearch = null
+let videoName = null
 
 const options = {
     controls: true,
@@ -11,7 +15,17 @@ const options = {
 
 const player = videojs(playerVideo, options)
 
+window.addEventListener('load', () => {
+    windowLocationSearch = window.location.search
+    const urlParams = new URLSearchParams(windowLocationSearch)
+
+    videoName = urlParams.get("video_name")
+    player.src({ type: 'video/mp4', src: `../videos/${videoName}` })
+
+})
+
 player.ready(function () {
+    //player appears in the corner
     window.addEventListener('scroll', () => {
         playerContainerHeight = playerContainer.clientHeight
         if (window.scrollY > playerContainerHeight) {

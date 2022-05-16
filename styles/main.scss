@@ -564,6 +564,10 @@ main {
         grid-template-columns: 1fr;
     }
 
+    .player {
+        min-height: 30vh;
+    }
+
     .player__container--fixed {
         width: 60%;
     }
