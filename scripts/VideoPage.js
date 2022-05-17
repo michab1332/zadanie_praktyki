@@ -2,9 +2,9 @@ function VideoPage(data = [], containerForItems = null, videoTitle = null) {
     this.data = data
     this.containerForItems = containerForItems
     this.videoTitle = videoTitle
-    const self = {}
+    this.self = {}
 
-    const templateSimilarVideoItem = (imgUrl, desc) => {
+    const templateSimilarVideoItem = (id, imgUrl, desc) => {
         const div = document.createElement('div')
         div.classList.add("articleElement--small")
 
@@ -24,6 +24,8 @@ function VideoPage(data = [], containerForItems = null, videoTitle = null) {
         div.appendChild(figure)
         div.appendChild(p)
 
+        div.addEventListener("click", () => this.self.changeVideo(id))
+
         return div;
     }
 
@@ -31,18 +33,33 @@ function VideoPage(data = [], containerForItems = null, videoTitle = null) {
         this.containerForItems.appendChild(item)
     }
 
-    self.generateSimilarVideos = () => {
+    const clearUrl = () => {
+        let url = window.location.href
+        return url.split("?")[0]
+    }
+
+    this.self.getVideoIdFromUrl = () => {
+        const urlParams = new URLSearchParams(window.location.search)
+        return urlParams.get("video_id")
+    }
+
+    this.self.changeVideo = (id) => {
+        const videoId = this.self.getVideoIdFromUrl()
+        videoId != id ? window.location.replace(clearUrl() + `?video_id=${id}`) : null
+    }
+
+    this.self.generateSimilarVideos = () => {
         this.data.forEach(item => {
-            const article = templateSimilarVideoItem(item.imgUrl, item.desc)
+            const article = templateSimilarVideoItem(item.id, item.imgUrl, item.desc)
             addItemToContainer(article)
         })
     }
 
-    self.setVideoTitle = (videoTitle) => {
+    this.self.setVideoTitle = (videoTitle) => {
         this.videoTitle.innerText = videoTitle
     }
 
-    self.findItemById = (data, id) => {
+    this.self.findItemById = (data, id) => {
         let itemId = null
         for (let i = 0; i < data.length; i++) {
             itemId = data[i].id
@@ -51,7 +68,7 @@ function VideoPage(data = [], containerForItems = null, videoTitle = null) {
         return console.error(`error, item with this id(${id}) does not exist`)
     }
 
-    return self;
+    return this.self;
 }
 
 export default VideoPage;

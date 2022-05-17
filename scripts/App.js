@@ -21,17 +21,13 @@ const options = {
 const player = videojs(playerVideo, options)
 
 window.addEventListener('load', () => {
-    windowLocationSearch = window.location.search
-    const urlParams = new URLSearchParams(windowLocationSearch)
-
-    videoId = urlParams.get("video_id")
-
-    videoPage.generateSimilarVideos()
+    videoId = videoPage.getVideoIdFromUrl()
 
     const videoItem = videoPage.findItemById(VIDEO_DATA, parseInt(videoId))
     videoPage.setVideoTitle(videoItem.name)
     player.src({ type: 'video/mp4', src: `../videos/${videoItem.name}.${videoItem.type}` })
 
+    videoPage.generateSimilarVideos()
 })
 
 player.ready(function () {
@@ -48,4 +44,3 @@ player.ready(function () {
         }
     })
 })
-
