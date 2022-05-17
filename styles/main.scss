@@ -298,6 +298,7 @@ main {
 }
 
 .articleElement {
+    cursor: pointer;
     width: 100%;
     height: 35rem;
     display: flex;
@@ -317,6 +318,7 @@ main {
     }
 
     &--small {
+        cursor: pointer;
         width: 100%;
         height: 100%;
         display: flex;
@@ -526,7 +528,7 @@ main {
     &__container {
 
         &--fixed {
-            width: 40%;
+            width: 30%;
             position: fixed;
             right: 2%;
             bottom: 2%;

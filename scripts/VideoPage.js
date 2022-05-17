@@ -1,6 +1,7 @@
-function VideoPage(data = [], containerForItems = null) {
+function VideoPage(data = [], containerForItems = null, videoTitle = null) {
     this.data = data
     this.containerForItems = containerForItems
+    this.videoTitle = videoTitle
     const self = {}
 
     const templateSimilarVideoItem = (imgUrl, desc) => {
@@ -35,6 +36,19 @@ function VideoPage(data = [], containerForItems = null) {
             const article = templateSimilarVideoItem(item.imgUrl, item.desc)
             addItemToContainer(article)
         })
+    }
+
+    self.setVideoTitle = (videoTitle) => {
+        this.videoTitle.innerText = videoTitle
+    }
+
+    self.findItemById = (data, id) => {
+        let itemId = null
+        for (let i = 0; i < data.length; i++) {
+            itemId = data[i].id
+            if (itemId === id) return data[i]
+        }
+        return console.error(`error, item with this id(${id}) does not exist`)
     }
 
     return self;

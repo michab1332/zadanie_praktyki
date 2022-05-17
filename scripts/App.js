@@ -4,11 +4,12 @@ import VideoPage from "./VideoPage.js";
 const playerVideo = document.querySelector(".video-js")
 const playerContainer = document.querySelector(".player__container")
 const similarsSection = document.querySelector(".similars__content")
-const videoPage = new VideoPage(VIDEO_DATA, similarsSection)
+const videoTitle = document.querySelector(".player__title")
+const videoPage = new VideoPage(VIDEO_DATA, similarsSection, videoTitle)
 
 let playerContainerHeight = null
 let windowLocationSearch = null
-let videoName = null
+let videoId = null
 
 const options = {
     controls: true,
@@ -23,10 +24,13 @@ window.addEventListener('load', () => {
     windowLocationSearch = window.location.search
     const urlParams = new URLSearchParams(windowLocationSearch)
 
-    videoName = urlParams.get("video_name")
-    player.src({ type: 'video/mp4', src: `../videos/${videoName}` })
+    videoId = urlParams.get("video_id")
 
     videoPage.generateSimilarVideos()
+
+    const videoItem = videoPage.findItemById(VIDEO_DATA, parseInt(videoId))
+    videoPage.setVideoTitle(videoItem.name)
+    player.src({ type: 'video/mp4', src: `../videos/${videoItem.name}.${videoItem.type}` })
 
 })
 
