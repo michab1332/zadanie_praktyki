@@ -1,74 +1,47 @@
-function VideoPage(data = [], containerForItems = null, videoTitle = null) {
-    this.data = data
-    this.containerForItems = containerForItems
-    this.videoTitle = videoTitle
-    this.self = {}
+import VIDEO_DATA from "./FakeData.js";
+import Generator from "./Generator.js";
 
-    const templateSimilarVideoItem = (id, imgUrl, desc) => {
-        const div = document.createElement('div')
-        div.classList.add("articleElement--small")
+const playerVideo = document.querySelector(".video-js")
+const playerContainer = document.querySelector(".player__container")
+const similarsSection = document.querySelector(".similars__content")
+const videoTitle = document.querySelector(".player__title")
+const videoPage = new Generator(VIDEO_DATA, similarsSection, videoTitle)
 
-        const figure = document.createElement('figure')
-        figure.classList.add("articleElement__figure")
+let playerContainerHeight = null
+let videoId = null
 
-        const img = document.createElement('img')
-        img.classList.add("articleElement__figure__img")
-        img.src = imgUrl
-        img.alt = "video"
-
-        const p = document.createElement('p')
-        p.classList.add("articleElement__desc")
-        p.innerText = desc
-
-        figure.appendChild(img)
-        div.appendChild(figure)
-        div.appendChild(p)
-
-        div.addEventListener("click", () => this.self.changeVideo(id))
-
-        return div;
-    }
-
-    const addItemToContainer = (item) => {
-        this.containerForItems.appendChild(item)
-    }
-
-    const clearUrl = () => {
-        let url = window.location.href
-        return url.split("?")[0]
-    }
-
-    this.self.getVideoIdFromUrl = () => {
-        const urlParams = new URLSearchParams(window.location.search)
-        return urlParams.get("video_id")
-    }
-
-    this.self.changeVideo = (id) => {
-        const videoId = this.self.getVideoIdFromUrl()
-        videoId != id ? window.location.replace(clearUrl() + `?video_id=${id}`) : null
-    }
-
-    this.self.generateSimilarVideos = () => {
-        this.data.forEach(item => {
-            const article = templateSimilarVideoItem(item.id, item.imgUrl, item.desc)
-            addItemToContainer(article)
-        })
-    }
-
-    this.self.setVideoTitle = (videoTitle) => {
-        this.videoTitle.innerText = videoTitle
-    }
-
-    this.self.findItemById = (data, id) => {
-        let itemId = null
-        for (let i = 0; i < data.length; i++) {
-            itemId = data[i].id
-            if (itemId === id) return data[i]
-        }
-        return console.error(`error, item with this id(${id}) does not exist`)
-    }
-
-    return this.self;
+const options = {
+    controls: true,
+    autoplay: false,
+    preload: 'auto',
+    fluid: true
 }
 
-export default VideoPage;
+const player = videojs(playerVideo, options)
+
+const videoPageSetUp = () => {
+    videoPage.generateItemsInContainer()
+
+    videoId = videoPage.getVideoIdFromUrl()
+
+    const videoItem = videoPage.findItemById(VIDEO_DATA, parseInt(videoId))
+    videoPage.setVideoTitle(videoItem.name)
+    player.src({ type: 'video/mp4', src: `../videos/${videoItem.name}.${videoItem.type}` })
+}
+
+window.addEventListener('load', videoPageSetUp)
+
+player.ready(function () {
+    //player appears in the corner
+    window.addEventListener('scroll', () => {
+        playerContainerHeight = playerContainer.clientHeight
+        if (window.scrollY > playerContainerHeight) {
+            playerContainer.classList.add("player__container--fixed")
+            playerContainer.classList.remove("player__container")
+
+        } else {
+            playerContainer.classList.add("player__container")
+            playerContainer.classList.remove("player__container--fixed")
+        }
+    })
+})
