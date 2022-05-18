@@ -4,7 +4,10 @@ function Generator(data = [], containerForItems = null, videoTitle = null) {
     this.videoTitle = videoTitle
     this.self = {}
 
-    const templateSimilarVideoItem = (id, imgUrl, desc) => {
+    const templateSimilarVideoItem = (id, imgUrl, desc, noDesc) => {
+        const a = document.createElement('a')
+        a.href = changeVideoUrl(id)
+
         const div = document.createElement('div')
         div.classList.add("articleElement--small")
 
@@ -18,24 +21,22 @@ function Generator(data = [], containerForItems = null, videoTitle = null) {
 
         const p = document.createElement('p')
         p.classList.add("articleElement__desc")
-        p.innerText = desc
+        p.innerText = noDesc ? "" : desc
 
         figure.appendChild(img)
         div.appendChild(figure)
         div.appendChild(p)
+        a.appendChild(div)
 
-        div.addEventListener("click", () => this.self.changeVideo(id))
-
-        return div;
+        return a;
     }
 
     const addItemToContainer = (item) => {
         this.containerForItems.appendChild(item)
     }
 
-    const clearUrl = () => {
-        let url = window.location.href
-        return url.split("?")[0]
+    const changeVideoUrl = (id) => {
+        return `${document.location.origin}/tvtorun/pages/video.html?video_id=${id}`
     }
 
     this.self.getVideoIdFromUrl = () => {
@@ -43,14 +44,9 @@ function Generator(data = [], containerForItems = null, videoTitle = null) {
         return urlParams.get("video_id")
     }
 
-    this.self.changeVideo = (id) => {
-        const videoId = this.self.getVideoIdFromUrl()
-        videoId != id ? window.location.replace(clearUrl() + `?video_id=${id}`) : null
-    }
-
-    this.self.generateItemsInContainer = () => {
+    this.self.generateItemsInContainer = (noDesc = false) => {
         this.data.forEach(item => {
-            const article = templateSimilarVideoItem(item.id, item.imgUrl, item.desc)
+            const article = templateSimilarVideoItem(item.id, item.imgUrl, item.desc, noDesc)
             addItemToContainer(article)
         })
     }

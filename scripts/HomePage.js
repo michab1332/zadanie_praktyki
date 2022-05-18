@@ -5,5 +5,5 @@ const dayTalkSection = document.querySelector(".dayTalk__content")
 const homePage = new Generator(VIDEO_DATA, dayTalkSection)
 
 window.addEventListener("load", () => {
-    homePage.generateItemsInContainer()
+    homePage.generateItemsInContainer(true)
 })
